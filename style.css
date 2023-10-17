@@ -25,8 +25,19 @@ main {
 }
 
 .three-by-three {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 500px;
+}
+
+.pf-row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.pf-row-rev {
+    flex-direction: row-reverse;
 }
 
 .progress-field {
@@ -34,7 +45,7 @@ main {
     width: var(--progress-field-diameter);
     background: orange;
     border-radius: 100%;
-    margin: 20px;
+    /*margin: 20px;*/
     /*text-align: center;*/
     display: flex;
     justify-content: center;
