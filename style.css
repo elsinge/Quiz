@@ -1,0 +1,45 @@
+:root {
+    --progress-field-diameter: 80px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 800px;
+    margin: 0 auto;
+    font-family: sans-serif;
+    background: rgba(252,224,255,0.36);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    background: rgba(169,219,255,0.36);
+}
+
+.three-by-three {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.progress-field {
+    height: var(--progress-field-diameter);
+    width: var(--progress-field-diameter);
+    background: orange;
+    border-radius: 100%;
+    margin: 20px;
+    /*text-align: center;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-field p {
+}
