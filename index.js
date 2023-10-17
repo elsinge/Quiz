@@ -1,4 +1,4 @@
-const questions = shuffleArray([
+const questionsTemplate = [
     // right answer at index 0
     {
         question: "Was sagt ein Pyrotechniker nie zu seinem Hund?",
@@ -14,7 +14,8 @@ const questions = shuffleArray([
         options: [
             "From my hotel room pretty good.",
             "We have to save the turtles!",
-            "I like soup!"
+            "I like soup!",
+            "When there's a small hint of diesel, the shrimps are just right!"
         ]
     },
 
@@ -66,7 +67,7 @@ const questions = shuffleArray([
     {
         question: "Wie verschickt ein Müller seine Rechnungen?",
         options: [
-            "Per Mehl",
+            "per Mehl",
             "telefonisch",
             "per Fax",
             "postalisch"
@@ -85,21 +86,43 @@ const questions = shuffleArray([
             "Palo Alto"
         ]
     },
-]);
+];
+let questions = [];
 
-let currentQuestion = 0;
+let currentQuestion;
 
-render();
+// startGame();
+
+function startGame() {
+    currentQuestion = 0;
+    questions = shuffleArray(questionsTemplate);
+    render();
+}
 
 function render() {
-    if (currentQuestion > 8) {
-        alert("You have won!")
-    }
     const questionEl = document.getElementById("question-el");
-    questionEl.innerText = questions[currentQuestion].question;
+    if (currentQuestion >= questions.length) {
+        questionEl.innerText = "You have won!"
+        const answersEl = clearAnswers();
+        const btn = document.createElement('button');
+        btn.innerText = "Play again";
+        btn.addEventListener('click', startGame);
+        answersEl.appendChild(btn);
+    } else {
+        renderQuiz(questionEl);
+    }
+}
 
+function clearAnswers() {
     const answersEl = document.getElementById("answers-el");
     answersEl.innerHTML = "";
+    return answersEl;
+}
+
+function renderQuiz(questionEl) {
+    questionEl.innerText = questions[currentQuestion].question;
+
+    const answersEl = clearAnswers();
 
     const shuffledQuestions = shuffleArray(questions[currentQuestion].options.slice());
     for (let answer of shuffledQuestions) {
@@ -109,13 +132,19 @@ function render() {
         answersEl.appendChild(btn)
     }
 
-    // const progressEl = document.getElementById("progress-el");
     const fields = document.getElementsByClassName("progress-field");
-    fields[currentQuestion].classList.add("progress-field-current");
-    for (let i = 0; i < currentQuestion; i++) {
-        fields[i].classList.remove("progress-field-current");
-        fields[i].classList.add("progress-field-done");
+    if (currentQuestion === 0) {
+        for (let el of fields) {
+            el.classList.remove("progress-field-current");
+            el.classList.remove("progress-field-done");
+        }
+    } else {
+        for (let i = 0; i < currentQuestion; i++) {
+            fields[i].classList.remove("progress-field-current");
+            fields[i].classList.add("progress-field-done");
+        }
     }
+    fields[currentQuestion].classList.add("progress-field-current");
 }
 
 function shuffleArray(arr) {

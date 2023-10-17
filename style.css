@@ -11,7 +11,7 @@ body {
     width: 800px;
     margin: 0 auto;
     font-family: sans-serif;
-    background: rgba(252,224,255,0.36);
+    background: rgba(234, 196, 255, 0.47);
 }
 
 header {
@@ -19,6 +19,10 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+main {
+    background: white;
 }
 
 h2 {
@@ -83,4 +87,8 @@ h2 {
     max-width: 180px;
     margin: 15px 10px;
     padding: 5px;
+}
+
+#answers-el p {
+    margin: 0 20px 20px;
 }
