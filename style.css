@@ -15,13 +15,14 @@ body {
 }
 
 header {
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-main {
-    background: rgba(169,219,255,0.36);
+h2 {
+    margin: 20px;
 }
 
 .three-by-three {
@@ -29,6 +30,7 @@ main {
     flex-direction: column;
     justify-content: space-around;
     height: 500px;
+    background: rgba(169,219,255,0.36);
 }
 
 .pf-row {
@@ -36,7 +38,7 @@ main {
     justify-content: space-around;
 }
 
-.pf-row-rev {
+.row-rev {
     flex-direction: row-reverse;
 }
 
@@ -52,5 +54,33 @@ main {
     align-items: center;
 }
 
-.progress-field p {
+.progress-field-done {
+    background: rgba(255,165,0,0.35);
+}
+
+.progress-field-current {
+    background: rgba(71, 102, 220, 0.55);
+}
+
+#input-area-el {
+    min-height: 300px;
+    background: rgba(86,255,188,0.35);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#answers-el {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+#answers-el button {
+    min-width: 70px;
+    max-width: 180px;
+    margin: 15px 10px;
+    padding: 5px;
 }
