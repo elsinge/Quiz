@@ -75,7 +75,7 @@ const questionsTemplate = [
     },
 
     {
-        question: "OK, a real question now: What does Java have that doesn't exist in C? Derive a city that you could recommend a C-dev to move to.",
+        question: "OK, a real question now: What does Java have that doesn't exist in C++? Derive a city that you could recommend a C++ dev to move to.",
         options: [
             "Naples",
             "Vienna",
@@ -153,7 +153,6 @@ function shuffleArray(arr) {
 
 function evaluate(e) {
 //     check if answer is correct
-    console.log(e.target.innerText)
     if (e.target.innerText === questions[currentQuestion].options[0]) {
         console.log("try: " + questions[currentQuestion].options[0])
         currentQuestion++;
